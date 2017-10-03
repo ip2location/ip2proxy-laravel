@@ -7,7 +7,7 @@ class IP2ProxyLaravel
 
     public function get($ip)
     {
-        $db = new \IP2Proxy\Database()
+        $db = new \IP2Proxy\Database();
         $db->open($this->getDatabasePath(), \IP2Proxy\Database::FILE_IO);
 
         $records = $db->getAll($ip);
