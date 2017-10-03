@@ -1,0 +1,27 @@
+{
+    "name": "ip2location/ip2proxy-laravel",
+    "description": "Allows user to query an IP address if it was being used as open proxy, web proxy, VPN anonymizer and TOR exits.",
+    "license": "MIT",
+    "keywords": [
+        "laravel",
+        "laravel 5",
+        "IP2Proxy",
+        "proxy"
+    ],
+    "authors": [
+        {
+            "name": "IP2Location",
+            "email": "support@ip2location.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=5.4",
+        "ip2location/ip2proxy-php": "1.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ip2location\\IP2ProxyLaravel\\": "src/"
+        }
+    }
+}
