@@ -13,8 +13,8 @@ IP2Proxy Laravel extension enables the user to query an IP address if it was bei
 3. Then publish the config file by:  
 `php artisan vendor:publish --provider=Ip2location\IP2ProxyLaravel\IP2ProxyLaravelServiceProvider --force`
 4. Download IP2Proxy BIN database
-    - IP2Proxy free LITE database at http://lite.ip2location.com
-    - IP2Proxy commercial database at http://www.ip2location.com/proxy-database
+    - IP2Proxy free LITE database at https://lite.ip2location.com
+    - IP2Proxy commercial database at https://www.ip2location.com/proxy-database
 5. Create a folder named as `ip2proxy` in the `database` directory.
 6. Unzip and copy the BIN file into `database/ip2proxy/` folder. 
 7. Rename the BIN file to IP2PROXY.BIN.
@@ -67,12 +67,12 @@ Route::get('test', 'TestController@lookup');
 ## DEPENDENCIES (IP2PROXY BIN DATA FILE)
 
 This library requires IP2Proxy BIN data file to function. You may download the BIN data file at
-* IP2Proxy LITE BIN Data (Free): http://lite.ip2location.com
-* IP2Proxy Commercial BIN Data (Comprehensive): http://www.ip2location.com/proxy-database
+* IP2Proxy LITE BIN Data (Free): https://lite.ip2location.com
+* IP2Proxy Commercial BIN Data (Comprehensive): https://www.ip2location.com/proxy-database
 
 
 ## SUPPORT
 
 Email: support@ip2location.com
 
-Website: http://www.ip2location.com
+Website: https://www.ip2location.com
