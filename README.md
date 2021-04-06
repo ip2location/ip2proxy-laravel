@@ -112,7 +112,7 @@ class TestController extends Controller
 ```
 Route::get('test', 'TestController@lookup');
 ```
-7. Enter the URL <your domain>/public/test and run. You should see the information of **1.2.3.4*** IP address.
+7. Enter the URL <your domain>/public/test and run. You should see the information of **1.2.3.4** IP address.
 
 ## DEPENDENCIES (IP2PROXY BIN DATA FILE)
 

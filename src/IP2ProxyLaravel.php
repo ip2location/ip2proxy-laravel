@@ -8,7 +8,7 @@ class IP2ProxyLaravel
     {
         if ($mode == 'bin')
         {
-            $this->$db = new \IP2Proxy\Database($this->getDatabasePath(), \IP2PROXY\Database::FILE_IO);
+            $this->db = new \IP2Proxy\Database($this->getDatabasePath(), \IP2PROXY\Database::FILE_IO);
         } else if ($mode == 'ws')
         {
             $apikey = \Config::get('site_vars.IP2ProxyAPIKey');
