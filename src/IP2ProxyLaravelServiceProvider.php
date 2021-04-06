@@ -24,9 +24,9 @@ class IP2ProxyLaravelServiceProvider extends ServiceProvider
      */
     public function register()
     {
-		//Dynamically add IP2ProxyLaravel alias
-		AliasLoader::getInstance()->alias('IP2ProxyLaravel', 'Ip2location\IP2ProxyLaravel\Facade\IP2ProxyLaravel');
-		
+        //Dynamically add IP2ProxyLaravel alias
+        AliasLoader::getInstance()->alias('IP2ProxyLaravel', 'Ip2location\IP2ProxyLaravel\Facade\IP2ProxyLaravel');
+
         $config = __DIR__.'/Config/ip2proxylaravel.php';
 
         $this->publishes([

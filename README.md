@@ -4,6 +4,8 @@
 
 IP2Proxy Laravel extension enables the user to query an IP address if it was being used as open proxy, web proxy, VPN anonymizer and TOR exits.
 
+*Note: This extension works in Laravel 6, Laravel 7 and Laravel 8.*
+
 
 ## INSTALLATION
 
@@ -11,26 +13,27 @@ IP2Proxy Laravel extension enables the user to query an IP address if it was bei
 2. Edit `config/app.php` and add the below line in 'providers' section:  
 `Ip2location\IP2ProxyLaravel\IP2ProxyLaravelServiceProvider::class,`
 3. Then publish the config file by:  
-`php artisan vendor:publish --provider=Ip2location\IP2ProxyLaravel\IP2ProxyLaravelServiceProvider --force`
-4. Download IP2Proxy BIN database
-    - IP2Proxy free LITE database at https://lite.ip2location.com
-    - IP2Proxy commercial database at https://www.ip2location.com/proxy-database
-5. Create a folder named as `ip2proxy` in the `database` directory.
-6. Unzip and copy the BIN file into `database/ip2proxy/` folder. 
-7. Rename the BIN file to IP2PROXY.BIN.
-
+`php artisan vendor:publish --provider='Ip2location\IP2ProxyLaravel\IP2ProxyLaravelServiceProvider' --force`
 
 ## USAGE
 
-In this tutorial, we will show you on how to create a **TestController** to display the IP information.
+IP2Proxy Laravel extension is able to query the IP address proxy information from either BIN database or web service. This section will explain how to use this extension to query from BIN database and web service.
 
-1. Create a **TestController** in Laravel using the below command line
+### BIN DATABASE
+
+1. Download IP2Proxy BIN database
+    - IP2Proxy free LITE database at https://lite.ip2location.com
+    - IP2Proxy commercial database at https://www.ip2location.com/proxy-database
+2. To use IP2Proxy databases, create a folder named as `ip2proxy` in the `database` directory.
+3. Unzip and copy the BIN file into `database/ip2proxy/` folder. 
+4. Rename the BIN file to IP2PROXY.BIN.
+5. Create a **TestController** in Laravel using the below command line
 ```
 php artisan make:controller TestController
 ```
-2. Open the **app/Http/Controllers/TestController.php** in any text editor.
-3. Add the below lines into the controller file.
-```
+6. Open the **app/Http/Controllers/TestController.php** in any text editor.
+7. To use IP2Proxy databases, add the below lines into the controller file
+```php
 <?php
 
 namespace App\Http\Controllers;
@@ -41,28 +44,75 @@ use IP2ProxyLaravel;            //use IP2ProxyLaravel class
 class TestController extends Controller
 {
     //Create a lookup function for display
-        public function lookup(){
+    public function lookup(){
         //Try query the geolocation information of 1.2.3.4 IP address
-        $record = IP2ProxyLaravel::get('1.2.3.4');
+        $records = IP2ProxyLaravel::get('1.2.3.4', 'bin');
 
-        echo '<p><strong>IP Address: </strong>' . $record['ipAddress'] . '</p>';
-        echo '<p><strong>IP Number: </strong>' . $record['ipNumber'] . '</p>';
-        echo '<p><strong>IP Version: </strong>' . $record['ipVersion'] . '</p>';
-        echo '<p><strong>Country Code: </strong>' . $record['countryCode'] . '</p>';
-        echo '<p><strong>Country: </strong>' . $record['countryName'] . '</p>';
-        echo '<p><strong>State: </strong>' . $record['regionName'] . '</p>';
-        echo '<p><strong>City: </strong>' . $record['cityName'] . '</p>';
-        echo '<p><strong>Proxy Type: </strong>' . $record['proxyType'] . '</p>';
-        echo '<p><strong>Is Proxy: </strong>' . $record['isProxy'] . '</p>';
-        echo '<p><strong>ISP: </strong>' . $record['isp'] . '</p>';
+        echo '<p><strong>IP Address: </strong>' . $records['ipAddress'] . '</p>';
+        echo '<p><strong>IP Number: </strong>' . $records['ipNumber'] . '</p>';
+        echo '<p><strong>IP Version: </strong>' . $records['ipVersion'] . '</p>';
+        echo '<p><strong>Country Code: </strong>' . $records['countryCode'] . '</p>';
+        echo '<p><strong>Country: </strong>' . $records['countryName'] . '</p>';
+        echo '<p><strong>State: </strong>' . $records['regionName'] . '</p>';
+        echo '<p><strong>City: </strong>' . $records['cityName'] . '</p>';
+        echo '<p><strong>Proxy Type: </strong>' . $records['proxyType'] . '</p>';
+        echo '<p><strong>Is Proxy: </strong>' . $records['isProxy'] . '</p>';
+        echo '<p><strong>ISP: </strong>' . $records['isp'] . '</p>';
     }
 }
 ```
-4. Add the following line into the *routes/web.php* file.
+8. Add the following line into the *routes/web.php* file.
 ```
 Route::get('test', 'TestController@lookup');
 ```
-5. Enter the URL <your domain>/public/test and run. You should see the information of **1.2.3.4** IP address.
+9. Enter the URL <your domain>/public/test and run. You should see the information of **1.2.3.4** IP address.
+
+### WEB SERVICE
+
+1. To use IP2Proxy Web Service, create a new file called "site_vars.php" in `config` directory.
+2. In the site_vars.php, save the following contents:
+```php
+<?php
+return [
+    'IP2ProxyAPIKey' => 'your_api_key', // Required. Your IP2Proxy API key.
+    'IP2ProxyPackage' => 'PX1', // Required. Choose the package you would like to use.
+    'IP2ProxyUsessl' => false, // Optional. Use https or http.
+];
+```
+3. Create a **TestController** in Laravel using the below command line
+```
+php artisan make:controller TestController
+```
+4. Open the **app/Http/Controllers/TestController.php** in any text editor.
+5. To use IP2Proxy Web Service, add the below lines into the controller file.
+```php
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+use IP2ProxyLaravel;            //use IP2ProxyLaravel class
+
+class TestController extends Controller
+{
+    //Create a lookup function for display
+    public function lookup(){
+        //Try query the geolocation information of 1.2.3.4 IP address
+        $records = IP2ProxyLaravel::get('1.2.3.4', 'ws');
+
+        echo '<pre>';
+        print_r($records);
+        echo '</pre>';
+    }
+}
+
+```
+6. Add the following line into the *routes/web.php* file.
+```
+Route::get('test', 'TestController@lookup');
+```
+7. Enter the URL <your domain>/public/test and run. You should see the information of **1.2.3.4*** IP address.
 
 ## DEPENDENCIES (IP2PROXY BIN DATA FILE)
 
