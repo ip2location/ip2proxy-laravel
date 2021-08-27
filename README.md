@@ -58,6 +58,13 @@ class TestController extends Controller
         echo '<p><strong>Proxy Type: </strong>' . $records['proxyType'] . '</p>';
         echo '<p><strong>Is Proxy: </strong>' . $records['isProxy'] . '</p>';
         echo '<p><strong>ISP: </strong>' . $records['isp'] . '</p>';
+        echo '<p><strong>Domain: </strong>' . $record['domain'] . '</p>';
+        echo '<p><strong>Usage Type: </strong>' . $record['usageType'] . '</p>';
+        echo '<p><strong>ASN: </strong>' . $record['asn'] . '</p>';
+        echo '<p><strong>AS: </strong>' . $record['as'] . '</p>';
+        echo '<p><strong>Last Seen: </strong>' . $record['lastSeen'] . '</p>';
+        echo '<p><strong>Threat: </strong>' . $record['threat'] . '</p>';
+        echo '<p><strong>Provider: </strong>' . $record['provider'] . '</p>';
     }
 }
 ```
