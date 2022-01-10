@@ -9,11 +9,7 @@ IP2Proxy Laravel extension enables the user to query an IP address if it was bei
 
 ## INSTALLATION
 
-1. Run the command: `composer require ip2location/ip2proxy-laravel` to download the package into the Laravel platform.
-2. Edit `config/app.php` and add the below line in 'providers' section:  
-`Ip2location\IP2ProxyLaravel\IP2ProxyLaravelServiceProvider::class,`
-3. Then publish the config file by:  
-`php artisan vendor:publish --provider='Ip2location\IP2ProxyLaravel\IP2ProxyLaravelServiceProvider' --force`
+Run the command: `composer require ip2location/ip2proxy-laravel` to download the package into the Laravel platform.
 
 ## USAGE
 

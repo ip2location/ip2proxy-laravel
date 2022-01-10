@@ -4,7 +4,9 @@
     "license": "MIT",
     "keywords": [
         "laravel",
-        "laravel 5",
+        "laravel 6",
+        "laravel 7",
+        "laravel 8",
         "IP2Proxy",
         "proxy"
     ],
@@ -22,6 +24,13 @@
     "autoload": {
         "psr-4": {
             "Ip2location\\IP2ProxyLaravel\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Ip2location\\IP2ProxyLaravel\\IP2ProxyLaravelServiceProvider"
+            ]
         }
     }
 }
