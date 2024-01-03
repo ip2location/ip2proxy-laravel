@@ -45,6 +45,7 @@ class IP2ProxyLaravel
 					'key'     => \Config::get('site_vars.IP2LocationioAPIKey'),
 					'ip'      => $ip,
 					'lang'    => ((config()->has('site_vars.IP2LocationioLanguage')) ? \Config::get('site_vars.IP2LocationioLanguage') : ''),
+					'source'  => 'laravel-ipx',
 				];
 				// Remove parameters without values
 				$params = array_filter($params);
