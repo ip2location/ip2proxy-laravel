@@ -2,7 +2,7 @@
 [![Latest Stable Version](https://img.shields.io/packagist/v/ip2location/ip2proxy-laravel.svg)](https://packagist.org/packages/ip2location/ip2proxy-laravel)
 [![Total Downloads](https://img.shields.io/packagist/dt/ip2location/ip2proxy-laravel.svg?style=flat-square)](https://packagist.org/packages/ip2location/ip2proxy-laravel)
 
-IP2Proxy Laravel extension enables the user to query an IP address if it was being used as open proxy, web proxy, VPN anonymizer and TOR exits.
+IP2Proxy Laravel extension enables the user to query an IP address if it was being used as VPN servers, open proxies, web proxies, Tor exit nodes, search engine robots, data center ranges, residential proxies, consumer privacy networks, and enterprise private networks.
 
 *Note: This extension works in Laravel 6, Laravel 7, Laravel 8 and Laravel 9.*
 
