@@ -4,7 +4,7 @@
 
 IP2Proxy Laravel extension enables the user to query an IP address if it was being used as VPN servers, open proxies, web proxies, Tor exit nodes, search engine robots, data center ranges, residential proxies, consumer privacy networks, and enterprise private networks.
 
-*Note: This extension works in Laravel 6, Laravel 7, Laravel 8 and Laravel 9.*
+*Note: This extension works in Laravel 6, Laravel 7, Laravel 8 and Laravel 9, Laravel 10 and Laravel 11.*
 
 
 ## INSTALLATION
@@ -66,9 +66,9 @@ class TestController extends Controller
 ```
 8. Add the following line into the *routes/web.php* file.
 ```
-Route::get('test', 'TestController@lookup');
+Route::get('test', 'App\Http\Controllers\TestController@lookup');
 ```
-9. Enter the URL <your domain>/public/test and run. You should see the information of **1.2.3.4** IP address.
+9. Enter the URL <your domain>/test and run. You should see the information of **1.2.3.4** IP address.
 
 ### WEB SERVICE
 
@@ -121,9 +121,9 @@ class TestController extends Controller
 ```
 6. Add the following line into the *routes/web.php* file.
 ```
-Route::get('test', 'TestController@lookup');
+Route::get('test', 'App\Http\Controllers\TestController@lookup');
 ```
-7. Enter the URL <your domain>/public/test and run. You should see the information of **1.2.3.4** IP address.
+7. Enter the URL <your domain>/test and run. You should see the information of **1.2.3.4** IP address.
 
 ## DEPENDENCIES (IP2PROXY BIN DATA FILE)
 
