@@ -4,7 +4,7 @@
 
 IP2Proxy Laravel extension enables the user to query an IP address if it was being used as VPN servers, open proxies, web proxies, Tor exit nodes, search engine robots, data center ranges, residential proxies, consumer privacy networks, and enterprise private networks.
 
-*Note: This extension works in Laravel 6, Laravel 7, Laravel 8 and Laravel 9, Laravel 10 and Laravel 11.*
+*Note: This extension works in Laravel 6, Laravel 7, Laravel 8 and Laravel 9, Laravel 10, Laravel 11 and Laravel 12.*
 
 
 ## INSTALLATION
